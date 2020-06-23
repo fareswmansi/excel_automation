@@ -2,7 +2,6 @@ from openpyxl import workbook, load_workbook
 import pandas as pd
 import numpy as np
 import xlrd as xl
-import replace
 
 
 #lists for data storage and automation processes
@@ -14,7 +13,8 @@ python_list = []
 database_list_of_lists = [('1', 33789190, 'Al Jasrah', '25', '1'),
                             ('2', 55860636, 'Al Jasrah', '50', '25.2841, 51.441'),
                             ('3', 55150250, 'Al Jasrah', '50', '25.2841, 51.441'),
-                            ('4', 66570312, 'Al Jasrah', '24', '25.3318,51.5255')]
+                            ('4', 66570312, 'Al Jasrah', '24', '25.3318,51.5255'),
+                            ('5', 66570315, 'Al Jasrah', '24', 'blah')]
 coordinates_list = []
 
 #start of user interface
@@ -87,16 +87,10 @@ if (first_choice == 'YES' or first_choice == 'yes'):
                         for number in matched_strings:
                             if cell.value == number:
                                 tryMe = cell
-                                coordinates_list.append(tryMe)
-                                """tryThis = tryMe.replace("<Cell \'sheet1\'. >", "")
-                                tryMe = cell.replace("<")
-                                print(tryThis)"""
+                                newTryMe = str(tryMe).replace('<Cell \'sheet1\'.', '')
+                                append_this = str(newTryMe).replace('>', '')
+                                print(append_this)
 
-                i = 0
-                for i in coordinates_list:
-                    i += 1
-                    while i < len(coordinates_list):
-                        print(coordinates_list[i])
 
 
     elif what_sheet != '1':
