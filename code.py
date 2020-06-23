@@ -14,7 +14,8 @@ database_list_of_lists = [('1', 33789190, 'Al Jasrah', '25', '1'),
                             ('2', 55860636, 'Al Jasrah', '50', '25.2841, 51.441'),
                             ('3', 55150250, 'Al Jasrah', '50', '25.2841, 51.441'),
                             ('4', 66570312, 'Al Jasrah', '24', '25.3318,51.5255'),
-                            ('5', 66570315, 'Al Jasrah', '24', 'blah')]
+                            ('5', 55439821, 'Al Jasrah', '24', 'blah'),
+                          ('5', 55512402, 'Al Jasrah', '24', 'blah')]
 coordinates_list = []
 
 #start of user interface
@@ -77,8 +78,7 @@ if (first_choice == 'YES' or first_choice == 'yes'):
 
                 #loop through excel spreadsheet and get coordinates of cell values
                 #done in order to match cell value with cordinate
-
-
+                #find cordinates, remove unwanted characters from returned string
                 for row in sheet.iter_rows(min_row=25,
                                            max_row=46,
                                            min_col=6,
@@ -89,8 +89,7 @@ if (first_choice == 'YES' or first_choice == 'yes'):
                                 tryMe = cell
                                 newTryMe = str(tryMe).replace('<Cell \'sheet1\'.', '')
                                 append_this = str(newTryMe).replace('>', '')
-                                print(append_this)
-
+                                coordinates_list.append(append_this)
 
 
     elif what_sheet != '1':
