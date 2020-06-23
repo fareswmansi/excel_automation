@@ -2,6 +2,7 @@ from openpyxl import workbook, load_workbook
 import pandas as pd
 import numpy as np
 import xlrd as xl
+import replace
 
 
 #lists for data storage and automation processes
@@ -14,7 +15,7 @@ database_list_of_lists = [('1', 33789190, 'Al Jasrah', '25', '1'),
                             ('2', 55860636, 'Al Jasrah', '50', '25.2841, 51.441'),
                             ('3', 55150250, 'Al Jasrah', '50', '25.2841, 51.441'),
                             ('4', 66570312, 'Al Jasrah', '24', '25.3318,51.5255')]
-cell_cord = []
+coordinates_list = []
 
 #start of user interface
 print("Hello, welcome to the data transfer automation program. To proceed, enter YES")
@@ -76,6 +77,8 @@ if (first_choice == 'YES' or first_choice == 'yes'):
 
                 #loop through excel spreadsheet and get coordinates of cell values
                 #done in order to match cell value with cordinate
+
+
                 for row in sheet.iter_rows(min_row=25,
                                            max_row=46,
                                            min_col=6,
@@ -83,8 +86,17 @@ if (first_choice == 'YES' or first_choice == 'yes'):
                     for cell in row:
                         for number in matched_strings:
                             if cell.value == number:
-                                print(cell)
+                                tryMe = cell
+                                coordinates_list.append(tryMe)
+                                """tryThis = tryMe.replace("<Cell \'sheet1\'. >", "")
+                                tryMe = cell.replace("<")
+                                print(tryThis)"""
 
+                i = 0
+                for i in coordinates_list:
+                    i += 1
+                    while i < len(coordinates_list):
+                        print(coordinates_list[i])
 
 
     elif what_sheet != '1':
