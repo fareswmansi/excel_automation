@@ -92,6 +92,16 @@ if (first_choice == 'YES' or first_choice == 'yes'):
                                 coordinates_list.append(append_this)
 
 
+                i = 0
+                while i < len(coordinates_list):
+                    i += 1
+                    if i < len(coordinates_list):
+                        c = sheet[coordinates_list[i]]
+                        print(c)
+                    else:
+                        break
+
+
     elif what_sheet != '1':
         print("functionailty for other sheets has not been implemeneted yet. Thank you.")
         exit(0)
