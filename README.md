@@ -3,4 +3,4 @@ automating excel data transfer processes from online database using python.
 
 !IMPORTANT! please email me to recieve the excel spreadsheet, code will not run otherwise.
 
-email: fareswmansi@gmail.com
+email: fares.mansi@beebolt.com
