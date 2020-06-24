@@ -17,6 +17,7 @@ database_list_of_lists = [('1', 33789190, 'Al Jasrah', '25', '1'),
                             ('5', 55439821, 'Al Jasrah', '24', 'blah'),
                           ('5', 55512402, 'Al Jasrah', '24', 'blah')]
 coordinates_list = []
+just_testing = []
 
 #start of user interface
 print("Hello, welcome to the data transfer automation program. To proceed, enter YES")
@@ -92,14 +93,25 @@ if (first_choice == 'YES' or first_choice == 'yes'):
                                 coordinates_list.append(append_this)
 
 
-                i = 0
-                while i < len(coordinates_list):
-                    i += 1
-                    if i < len(coordinates_list):
-                        c = sheet[coordinates_list[i]]
-                        print(c)
-                    else:
-                        break
+                #error catching, check if coordinates actually exist and match the strings
+
+                def checking_coordinates(matched_strings, coordinates_list):
+                    i = 0
+                    while i < len(coordinates_list):
+                        i += 1
+                        if i < len(coordinates_list):
+                            c = sheet[coordinates_list[i]]
+                            for phone_number in matched_strings:
+                                j = 0
+                                while j < len(matched_strings):
+                                    j += 1
+                                    if j < len(matched_strings):
+
+
+                        else:
+                            break
+
+
 
 
     elif what_sheet != '1':
