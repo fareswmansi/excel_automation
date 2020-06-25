@@ -77,11 +77,10 @@ def adding_letters(coordinates_list, just_testing):
 
 
 #check if input field is empty
-def check_if_empty(just_testing):
+def check_if_empty(just_testing, add_to_these_coordinates):
     i = 0
     while i < len(just_testing):
         i += 1
         if i < len(just_testing):
             if sheet[just_testing[i]].value == None:
-                print(just_testing[i])
-
+                add_to_these_coordinates.append(just_testing[i])

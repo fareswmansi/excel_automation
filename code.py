@@ -1,5 +1,5 @@
 from openpyxl import workbook, load_workbook
-from lists import database_list_of_lists, python_list, matched_strings, coordinates_list, just_testing
+from lists import database_list_of_lists, python_list, matched_strings, coordinates_list, just_testing, add_to_these_coordinates
 from functions import checking_coordinates, get_cordinates, append_list, databse_loop, display_data, adding_letters, check_if_empty
 
 excel_file_1 = 'testme2.xlsx'
@@ -57,7 +57,8 @@ if (first_choice == 'YES' or first_choice == 'yes'):
 
                 adding_letters(coordinates_list, just_testing)
 
-                check_if_empty(just_testing)
+                check_if_empty(just_testing, add_to_these_coordinates)
+                print(add_to_these_coordinates)
 
 
 

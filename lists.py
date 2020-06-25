@@ -12,3 +12,5 @@ matched_strings = []
 coordinates_list = []
 
 just_testing = []
+
+add_to_these_coordinates = []
