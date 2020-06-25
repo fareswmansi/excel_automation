@@ -87,11 +87,15 @@ def check_if_empty(just_testing, add_to_these_coordinates):
 #match coordinates with list index
 def match_coordinate_with_input(add_to_these_coordinates, database_list_of_lists):
     i = 0
+    tryme = str(add_to_these_coordinates[0]).replace('M', 'G')
     while i < len(add_to_these_coordinates):
         i += 1
         if i < len(add_to_these_coordinates):
-            tryme = str(add_to_these_coordinates[i]).replace('M', 'G')
-            for number in database_list_of_lists:
-                for phone_number in number:
-                    if sheet[tryme].value == phone_number:
-                        print(phone_number)
+            tryme_too = str(add_to_these_coordinates[i]).replace('M', 'G')
+            def indexing_coordinates(database_list_of_lists, tryme, tryme_too):
+                for number in database_list_of_lists:
+                    for phone_number in number:
+                        if (sheet[tryme].value == number):
+                            print(number)
+            indexing_coordinates(database_list_of_lists, tryme, tryme_too)
+

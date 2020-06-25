@@ -59,7 +59,7 @@ if (first_choice == 'YES' or first_choice == 'yes'):
 
                 check_if_empty(just_testing, add_to_these_coordinates)
 
-                match_coordinate_with_input(database_list_of_lists, add_to_these_coordinates)
+                match_coordinate_with_input(add_to_these_coordinates, database_list_of_lists)
 
     elif what_sheet != '1':
         print("functionailty for other sheets has not been implemeneted yet. Thank you.")
