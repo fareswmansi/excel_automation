@@ -1,21 +1,9 @@
 from openpyxl import workbook, load_workbook
+from lists import database_list_of_lists, python_list, matched_strings, coordinates_list, just_testing
 from functions import checking_coordinates, get_cordinates, append_list, databse_loop, display_data, adding_letters, check_if_empty
 
-
-#lists for data storage and automation processes
 excel_file_1 = 'testme2.xlsx'
 first_sheet = 'sheet1'
-matched_strings = []
-python_list = []
-#!IMPORTANT! copy paste data from phpMyAdmin into this list to run program
-database_list_of_lists = [('1', 33789190, 'Al Jasrah', '25', '1'),
-                            ('2', 55860636, 'Al Jasrah', '50', '25.2841, 51.441'),
-                            ('3', 55150250, 'Al Jasrah', '50', '25.2841, 51.441'),
-                            ('4', 66570312, 'Al Jasrah', '24', '25.3318,51.5255'),
-                            ('5', 55439821, 'Al Jasrah', '24', 'blah'),
-                          ('5', 55512402, 'Al Jasrah', '24', 'blah')]
-coordinates_list = []
-just_testing = []
 
 #start of user interface
 print("Hello, welcome to the data transfer automation program. To proceed, enter YES")
@@ -64,15 +52,13 @@ if (first_choice == 'YES' or first_choice == 'yes'):
                 #done in order to match cell value with cordinate
                 #find cordinates, remove unwanted characters from returned string
                 get_cordinates(matched_strings, coordinates_list)
-                print(coordinates_list)
 
                 #error catching, check if coordinates actually exist and match the strings
                 checking_coordinates(coordinates_list)
 
                 adding_letters(coordinates_list, just_testing)
-                print(just_testing)
 
-                check_if_empty(just_testing)
+                print(just_testing)
 
     elif what_sheet != '1':
         print("functionailty for other sheets has not been implemeneted yet. Thank you.")

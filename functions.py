@@ -82,8 +82,6 @@ def check_if_empty(just_testing):
     while i < len(just_testing):
         i += 1
         if i < len(just_testing):
-            c = sheet[just_testing[i]]
-            print(c)
-
-
-
+            c = sheet[just_testing[i]].value
+            if c == 'None':
+                return just_testing[i]
