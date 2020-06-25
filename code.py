@@ -1,6 +1,5 @@
 from openpyxl import workbook, load_workbook
-from functions import checking_coordinates, get_cordinates, append_list, databse_loop, display_data, adding_letters
-
+from functions import checking_coordinates, get_cordinates, append_list, databse_loop, display_data, adding_letters, check_if_empty
 
 
 #lists for data storage and automation processes
@@ -72,6 +71,8 @@ if (first_choice == 'YES' or first_choice == 'yes'):
 
                 adding_letters(coordinates_list, just_testing)
                 print(just_testing)
+
+                check_if_empty(just_testing)
 
     elif what_sheet != '1':
         print("functionailty for other sheets has not been implemeneted yet. Thank you.")

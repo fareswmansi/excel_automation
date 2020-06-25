@@ -75,3 +75,15 @@ def adding_letters(coordinates_list, just_testing):
             tryThis = str(coordinates_list[i]).replace('G', 'M')
             just_testing.append(tryThis)
 
+
+#check if input field is empty
+def check_if_empty(just_testing):
+    i = 0
+    while i < len(just_testing):
+        i += 1
+        if i < len(just_testing):
+            c = sheet[just_testing[i]]
+            print(c)
+
+
+
