@@ -1,6 +1,5 @@
 from openpyxl import workbook, load_workbook
-import numpy as np
-from functions import checking_coordinates, get_cordinates
+from functions import checking_coordinates, get_cordinates, append_list, databse_loop, display_data
 
 
 
@@ -47,12 +46,7 @@ if (first_choice == 'YES' or first_choice == 'yes'):
         if load_or_automate == '1':
             #variables defined at the start of script
             print("Data within the sheet: ")
-            for value in sheet.iter_rows(min_row=1,
-                                         max_row=47,
-                                         min_col=7,
-                                         max_col=8,
-                                         values_only=True):
-                print(value)
+            print(display_data())
 
         elif load_or_automate == '2':
             print("What is the day you wish to automate?")
@@ -61,30 +55,20 @@ if (first_choice == 'YES' or first_choice == 'yes'):
             if date_of_automation >= '11':
 
                 #loop through excel and database list to find similarities and append to matched_string list
-                for value in sheet.iter_rows(min_row=25,
-                                            max_row=46,
-                                            min_col=6,
-                                            max_col=7,
-                                            values_only=True):
-                        python_list.append(value)
+                append_list(python_list)
 
                 #loop through databse list and python list,
                 #find similarities and put them in a seperate list (matched_strings)
-                for list in database_list_of_lists:
-                    for phone_number in list:
-                        for second_list in python_list:
-                            for number in second_list:
-                                if number == phone_number:
-                                    matched_strings.append(phone_number)
+                databse_loop(database_list_of_lists, python_list, matched_strings)
 
                 #loop through excel spreadsheet and get coordinates of cell values
                 #done in order to match cell value with cordinate
                 #find cordinates, remove unwanted characters from returned string
-                get_coordinates(matched_strings, coordinates_list)
+                get_cordinates(matched_strings, coordinates_list)
                 print(coordinates_list)
 
                 #error catching, check if coordinates actually exist and match the strings
-
+                checking_coordinates(coordinates_list)
 
     elif what_sheet != '1':
         print("functionailty for other sheets has not been implemeneted yet. Thank you.")
