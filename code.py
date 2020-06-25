@@ -1,5 +1,5 @@
 from openpyxl import workbook, load_workbook
-from functions import checking_coordinates, get_cordinates, append_list, databse_loop, display_data
+from functions import checking_coordinates, get_cordinates, append_list, databse_loop, display_data, adding_letters
 
 
 
@@ -69,6 +69,9 @@ if (first_choice == 'YES' or first_choice == 'yes'):
 
                 #error catching, check if coordinates actually exist and match the strings
                 checking_coordinates(coordinates_list)
+
+                adding_letters(coordinates_list, just_testing)
+                print(just_testing)
 
     elif what_sheet != '1':
         print("functionailty for other sheets has not been implemeneted yet. Thank you.")

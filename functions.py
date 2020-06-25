@@ -63,3 +63,15 @@ def checking_coordinates(coordinates_list):
                         return True
         else:
             break
+
+#change coordinate column to match input field
+def adding_letters(coordinates_list, just_testing):
+    i = 0
+    firstTry = str(coordinates_list[0]).replace('G', 'M')
+    just_testing.insert(0, firstTry)
+    while i < len(coordinates_list):
+        i += 1
+        if i < len(coordinates_list):
+            tryThis = str(coordinates_list[i]).replace('G', 'M')
+            just_testing.append(tryThis)
+
