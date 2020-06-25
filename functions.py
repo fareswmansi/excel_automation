@@ -39,13 +39,13 @@ def get_cordinates(matched_strings, coordinates_list):
                                            max_row=46,
                                            min_col=6,
                                            max_col=7):
-                    for cell in row:
-                        for number in matched_strings:
-                            if cell.value == number:
-                                tryMe = cell
-                                tryMe = str(tryMe).replace('<Cell \'sheet1\'.', '')
-                                append_this = str(tryMe).replace('>', '')
-                                coordinates_list.append(append_this)
+        for cell in row:
+            for number in matched_strings:
+                if cell.value == number:
+                    tryMe = cell
+                    tryMe = str(tryMe).replace('<Cell \'sheet1\'.', '')
+                    append_this = str(tryMe).replace('>', '')
+                    coordinates_list.append(append_this)
 
 #check coordinates existance within excel in order to catch errors
 def checking_coordinates(coordinates_list):
@@ -75,7 +75,6 @@ def adding_letters(coordinates_list, just_testing):
             tryThis = str(coordinates_list[i]).replace('G', 'M')
             just_testing.append(tryThis)
 
-
 #check if input field is empty
 def check_if_empty(just_testing, add_to_these_coordinates):
     i = 0
@@ -84,3 +83,15 @@ def check_if_empty(just_testing, add_to_these_coordinates):
         if i < len(just_testing):
             if sheet[just_testing[i]].value == None:
                 add_to_these_coordinates.append(just_testing[i])
+
+#match coordinates with list index
+def match_coordinate_with_input(add_to_these_coordinates, database_list_of_lists):
+    i = 0
+    while i < len(add_to_these_coordinates):
+        i += 1
+        if i < len(add_to_these_coordinates):
+            tryme = str(add_to_these_coordinates[i]).replace('M', 'G')
+            for number in database_list_of_lists:
+                for phone_number in number:
+                    if sheet[tryme].value == phone_number:
+                        print(phone_number)
