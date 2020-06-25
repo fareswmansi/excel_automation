@@ -1,6 +1,7 @@
 from openpyxl import workbook, load_workbook
 import numpy as np
-from functions import checking_coordinates
+from functions import checking_coordinates, split_characters
+
 
 
 #lists for data storage and automation processes
@@ -86,14 +87,14 @@ if (first_choice == 'YES' or first_choice == 'yes'):
                     for cell in row:
                         for number in matched_strings:
                             if cell.value == number:
-                                tryMe = cell
-                                newTryMe = str(tryMe).replace('<Cell \'sheet1\'.', '')
-                                append_this = str(newTryMe).replace('>', '')
-                                coordinates_list.append(append_this)
+                                split_characters(cell, coordinates_list)
+
+                print(coordinates_list)
+
 
 
                 #error catching, check if coordinates actually exist and match the strings
-                checking_coordinates(matched_strings, coordinates_list)
+                """checking_coordinates(matched_strings, coordinates_list)"""
 
 
 

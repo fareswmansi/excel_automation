@@ -45,3 +45,12 @@ def checking_coordinates(matched_strings, coordinates_list):
                         return printme
         else:
             break
+
+def split_characters(cell, coordinates_list):
+    tryMe = cell
+    tryMe = str(tryMe).replace('<Cell \'sheet1\'.', '')
+    append_this = str(tryMe).replace('>', '')
+    coordinates_list.append(append_this)
+    return coordinates_list
+
+
