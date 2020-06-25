@@ -1,6 +1,6 @@
 from openpyxl import workbook, load_workbook
 import numpy as np
-from functions import checking_coordinates, split_characters
+from functions import checking_coordinates, get_cordinates
 
 
 
@@ -80,23 +80,10 @@ if (first_choice == 'YES' or first_choice == 'yes'):
                 #loop through excel spreadsheet and get coordinates of cell values
                 #done in order to match cell value with cordinate
                 #find cordinates, remove unwanted characters from returned string
-                for row in sheet.iter_rows(min_row=25,
-                                           max_row=46,
-                                           min_col=6,
-                                           max_col=7):
-                    for cell in row:
-                        for number in matched_strings:
-                            if cell.value == number:
-                                split_characters(cell, coordinates_list)
-
+                get_coordinates(matched_strings, coordinates_list)
                 print(coordinates_list)
 
-
-
                 #error catching, check if coordinates actually exist and match the strings
-                """checking_coordinates(matched_strings, coordinates_list)"""
-
-
 
 
     elif what_sheet != '1':
