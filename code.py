@@ -15,7 +15,6 @@ if (first_choice == 'YES' or first_choice == 'yes'):
 
     #authorization and opening of excel worksheets
     workbook = load_workbook(filename=name_of_sheet)
-    sheet = workbook.active
     print("The following sheets are avaliable within the xlsx file: ")
     print(workbook.sheetnames)
     print("Which sheet would you like to access?")
@@ -58,7 +57,9 @@ if (first_choice == 'YES' or first_choice == 'yes'):
 
                 adding_letters(coordinates_list, just_testing)
 
-                print(just_testing)
+                check_if_empty(just_testing)
+
+
 
     elif what_sheet != '1':
         print("functionailty for other sheets has not been implemeneted yet. Thank you.")
