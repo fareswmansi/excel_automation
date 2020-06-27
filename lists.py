@@ -15,4 +15,6 @@ just_testing = []
 
 add_to_these_coordinates = []
 
-input_fields = []
+area_input_list = []
+
+location_input_list = []

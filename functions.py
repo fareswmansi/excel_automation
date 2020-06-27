@@ -85,7 +85,7 @@ def check_if_empty(just_testing, add_to_these_coordinates):
                 add_to_these_coordinates.append(just_testing[i])
 
 #match coordinates with list index
-def match_coordinate_with_input(add_to_these_coordinates, database_list_of_lists, input_fields):
+def match_coordinate_with_input(add_to_these_coordinates, database_list_of_lists, area_input_list, location_input_list):
     for coordinate in add_to_these_coordinates:
         indexme = str(coordinate).replace('M', 'G')
         i = 0
@@ -94,5 +94,7 @@ def match_coordinate_with_input(add_to_these_coordinates, database_list_of_lists
             if i < len(database_list_of_lists):
                 if sheet[indexme].value == database_list_of_lists[i][1]:
                     print(database_list_of_lists[i][1])
-                    inputme = str(database_list_of_lists[i][2]) + ' ' + str(database_list_of_lists[i][3])
-                    input_fields.append(inputme)
+                    area_input = str(database_list_of_lists[i][2]) + ' ' + str(database_list_of_lists[i][3])
+                    location_input = database_list_of_lists[i][4]
+                    area_input_list.append(area_input)
+                    location_input_list.append(location_input)
