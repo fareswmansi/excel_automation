@@ -101,7 +101,7 @@ def match_coordinate_with_input(add_to_these_coordinates, database_list_of_lists
                     location_input_list.append(location_input)
 
 #input area into matched string index in excel
-def area_input_excel(area_input_list, order_of_input_list, add_to_these_coordinates, final_coordinate_list):
+"""def area_input_excel(area_input_list, order_of_input_list, add_to_these_coordinates, final_coordinate_list):
     i = 0
     while i < len(order_of_input_list):
         i += 1
@@ -109,13 +109,27 @@ def area_input_excel(area_input_list, order_of_input_list, add_to_these_coordina
             sheet[add_to_these_coordinates[i]] = area_input_list[i]
             for coordinate in add_to_these_coordinates:
                 final_index = coordinate.replace('M', 'Q')
-                final_coordinate_list.append(final_index)
+                final_coordinate_list.append(final_index)"""
 
 #input location into matched string index in excel
-def location_input_excel(location_input_list, final_coordinate_list, order_of_input_list):
+"""def location_input_excel(location_input_list, final_coordinate_list, order_of_input_list):
     i = 0
     while i < len(order_of_input_list):
         i += 1
         if i < len(order_of_input_list):
             sheet[final_coordinate_list[i]] = location_input_list[i]
-            workbook.save('testme2.xlsx')
+            workbook.save('testme2.xlsx')"""
+
+def area_input_excel(area_input_list, add_to_these_coordinates):
+    for coordinate in add_to_these_coordinates:
+        for area in area_input_list:
+            sheet[coordinate] = area
+
+def location_input_excel(location_input_list, final_coordinate_list, add_to_these_coordinates):
+    for coordinate in add_to_these_coordinates:
+        final_index = coordinate.replace('M', 'Q')
+        final_coordinate_list.append(final_index)
+        for index in final_coordinate_list:
+            for location in location_input_list:
+                sheet[index] = location
+                workbook.save('testme2.xlsx')
