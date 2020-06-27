@@ -15,6 +15,8 @@ just_testing = []
 
 add_to_these_coordinates = []
 
+order_of_input_list = []
+
 area_input_list = []
 
 location_input_list = []
