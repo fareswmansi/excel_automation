@@ -93,5 +93,6 @@ def match_coordinate_with_input(add_to_these_coordinates, database_list_of_lists
             i += 1
             if i < len(database_list_of_lists):
                 if sheet[indexme].value == database_list_of_lists[i][1]:
+                    print(database_list_of_lists[i][1])
                     inputme = str(database_list_of_lists[i][2]) + ' ' + str(database_list_of_lists[i][3])
                     input_fields.append(inputme)
