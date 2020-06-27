@@ -93,20 +93,23 @@ def check_if_empty(just_testing, add_to_these_coordinates):
         if i < len(add_to_these_coordinates):
             tryme_too = str(add_to_these_coordinates[i]).replace('M', 'G')
             def indexing_coordinates(database_list_of_lists, tryme, tryme_too):
-                for number in database_list_of_lists:
-                    for phone_number in number:
-                        if (sheet[tryme].value == number):
-                            print(number)
+                j = 0
+                while j < len(database_list_of_lists):
+                    j += 1
+                    if j < len(database_list_of_lists):
+                        if (sheet[tryme].value == database_list_of_lists[j][1]):
+                            print(database_list_of_lists[j][1])
+                            if (sheet[tryme_too].value == database_list_of_lists[j][1]):
+                                print(database_list_of_lists[j][1])
             indexing_coordinates(database_list_of_lists, tryme, tryme_too)"""
 
-def test_this(add_to_these_coordinates):
-    tryme = str(add_to_these_coordinates[0]).replace('M', 'G')
-    i = 0
-    while i < len(add_to_these_coordinates):
-        i += 1
-        if i < len(add_to_these_coordinates):
-            tryme_too = str(add_to_these_coordinates[i]).replace('M', 'G')
-            c = sheet[tryme].value
-            b = sheet[tryme_too].value
-            print(c, b)
+def match_coordinate_with_input(add_to_these_coordinates, database_list_of_lists):
+    for coordinate in add_to_these_coordinates:
+        indexme = str(coordinate).replace('M', 'G')
+        i = 0
+        while i < len(database_list_of_lists):
+            i += 1
+            if i < len(database_list_of_lists):
+                if sheet[indexme].value == database_list_of_lists[i][1]:
+                    print(database_list_of_lists[i][1])
 
