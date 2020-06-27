@@ -1,5 +1,5 @@
 from openpyxl import workbook, load_workbook
-from lists import database_list_of_lists, python_list, matched_strings, coordinates_list, just_testing, add_to_these_coordinates
+from lists import database_list_of_lists, python_list, matched_strings, coordinates_list, just_testing, add_to_these_coordinates, input_fields
 from functions import checking_coordinates, get_cordinates, append_list, databse_loop, display_data, adding_letters, check_if_empty, match_coordinate_with_input
 
 excel_file_1 = 'testme2.xlsx'
@@ -59,7 +59,8 @@ if (first_choice == 'YES' or first_choice == 'yes'):
 
                 check_if_empty(just_testing, add_to_these_coordinates)
 
-                match_coordinate_with_input(add_to_these_coordinates, database_list_of_lists)
+                match_coordinate_with_input(add_to_these_coordinates, database_list_of_lists, input_fields)
+                print(input_fields)
     elif what_sheet != '1':
         print("functionailty for other sheets has not been implemeneted yet. Thank you.")
         exit(0)
