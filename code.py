@@ -60,13 +60,12 @@ if (first_choice == 'YES' or first_choice == 'yes'):
                 check_if_empty(just_testing, add_to_these_coordinates)
 
                 match_coordinate_with_input(add_to_these_coordinates, database_list_of_lists, area_input_list, location_input_list, order_of_input_list)
-                print(area_input_list)
-                print(location_input_list)
-                """area_input_excel(area_input_list, add_to_these_coordinates)
+
+                area_input_excel(area_input_list, add_to_these_coordinates)
 
                 change_coordinates(add_to_these_coordinates, final_coordinate_list)
 
-                location_input_excel(location_input_list, final_coordinate_list)"""
+                location_input_excel(location_input_list, final_coordinate_list)
 
     elif what_sheet != '1':
         print("functionailty for other sheets has not been implemeneted yet. Thank you.")

@@ -90,23 +90,29 @@ def match_coordinate_with_input(add_to_these_coordinates, database_list_of_lists
     for coordinate in add_to_these_coordinates:
         indexme = str(coordinate).replace('M', 'G')
         i = 0
-        for i in range(len(database_list_of_lists)):
+        while i < len(database_list_of_lists):
             i += 1
-            while i < len(database_list_of_lists):
+            if i < len(database_list_of_lists):
                 if sheet[indexme].value == database_list_of_lists[i][1]:
                     order_of_input_list.append(database_list_of_lists[i][1])
                     area_input = str(database_list_of_lists[i][2]) + ' ' + str(database_list_of_lists[i][3])
                     location_input = database_list_of_lists[i][4]
                     area_input_list.append(area_input)
                     location_input_list.append(location_input)
-            else:
-                break
+
 
 #input area into matched string index in excel
-def area_input_excel(area_input_list, add_to_these_coordinates):
+"""def area_input_excel(area_input_list, add_to_these_coordinates):
     for coordinate in add_to_these_coordinates:
         for area in area_input_list:
-            sheet[coordinate] = area
+            sheet[coordinate] = area"""
+
+def area_input_excel(area_input_list, add_to_these_coordinates):
+    i = 0
+    while i < len(area_input_list):
+        i += 1
+        if i < len(area_input_list):
+            sheet[add_to_these_coordinates[i]] = area_input_list[i]
 
 #change M to Q in order to index the location input fields
 def change_coordinates(add_to_these_coordinates, final_coordinate_list):
@@ -114,9 +120,18 @@ def change_coordinates(add_to_these_coordinates, final_coordinate_list):
         final_index = final_coordinate.replace('M', 'Q')
         final_coordinate_list.append(final_index)
 
+
 #input location into matched string index in excel
-def location_input_excel(location_input_list, final_coordinate_list):
+"""def location_input_excel(location_input_list, final_coordinate_list):
     for coordinate in final_coordinate_list:
         for location in location_input_list:
             sheet[coordinate] = location
+            workbook.save('testme2.xlsx')"""
+
+def location_input_excel(location_input_list, final_coordinate_list):
+    i = 0
+    while i < len(final_coordinate_list):
+        i += 1
+        if i < len(final_coordinate_list):
+            sheet[final_coordinate_list[i]] = location_input_list[i]
             workbook.save('testme2.xlsx')
