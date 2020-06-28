@@ -1,6 +1,6 @@
 from openpyxl import workbook, load_workbook
 from lists import database_list_of_lists, python_list, matched_strings, coordinates_list, just_testing, add_to_these_coordinates, area_input_list, location_input_list, order_of_input_list, final_coordinate_list
-from functions import checking_coordinates, get_cordinates, append_list, databse_loop, display_data, adding_letters, check_if_empty, match_coordinate_with_input, area_input_excel, location_input_excel
+from functions import checking_coordinates, get_cordinates, append_list, databse_loop, display_data, adding_letters, check_if_empty, match_coordinate_with_input, area_input_excel, location_input_excel, change_coordinates
 
 excel_file_1 = 'testme2.xlsx'
 first_sheet = 'sheet1'
@@ -61,9 +61,11 @@ if (first_choice == 'YES' or first_choice == 'yes'):
 
                 match_coordinate_with_input(add_to_these_coordinates, database_list_of_lists, area_input_list, location_input_list, order_of_input_list)
 
-                area_input_excel(area_input_list, add_to_these_coordinates, final_coordinate_list, order_of_input_list)
+                area_input_excel(area_input_list, add_to_these_coordinates)
 
-                location_input_excel(location_input_list, final_coordinate_list, order_of_input_list)
+                change_coordinates(add_to_these_coordinates, final_coordinate_list)
+
+                location_input_excel(location_input_list, final_coordinate_list)
 
     elif what_sheet != '1':
         print("functionailty for other sheets has not been implemeneted yet. Thank you.")
