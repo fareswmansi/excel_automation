@@ -90,15 +90,17 @@ def match_coordinate_with_input(add_to_these_coordinates, database_list_of_lists
     for coordinate in add_to_these_coordinates:
         indexme = str(coordinate).replace('M', 'G')
         i = 0
-        while i < len(database_list_of_lists):
+        for i in range(len(database_list_of_lists)):
             i += 1
-            if i < len(database_list_of_lists):
+            while i < len(database_list_of_lists):
                 if sheet[indexme].value == database_list_of_lists[i][1]:
                     order_of_input_list.append(database_list_of_lists[i][1])
                     area_input = str(database_list_of_lists[i][2]) + ' ' + str(database_list_of_lists[i][3])
                     location_input = database_list_of_lists[i][4]
                     area_input_list.append(area_input)
                     location_input_list.append(location_input)
+            else:
+                break
 
 #input area into matched string index in excel
 def area_input_excel(area_input_list, add_to_these_coordinates):
