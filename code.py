@@ -7,25 +7,25 @@ first_sheet = 'sheet1'
 
 #start of user interface
 print("Hello, welcome to the data transfer automation program. To proceed, enter YES")
-first_choice = input("")
+first_choice = raw_input('')
 
 if (first_choice == 'YES' or first_choice == 'yes'):
     print("Please enter the name of the xlsx file you wish to automate.")
-    name_of_sheet = input("")
+    name_of_sheet = raw_input("")
 
     #authorization and opening of excel worksheets
     workbook = load_workbook(filename=name_of_sheet)
     print("The following sheets are avaliable within the xlsx file: ")
     print(workbook.sheetnames)
     print("Which sheet would you like to access?")
-    what_sheet = input("")
+    what_sheet = raw_input("")
 
     #Asks what sheet you would like to access
     if (what_sheet == '1' or what_sheet == 'sheet1'):
         print("accessing batching_sheet....")
 
         print("To load data, enter 1. To skip that step and begin automating data, press 2.")
-        load_or_automate = input("")
+        load_or_automate = raw_input("")
 
         #allows the user to simply see the data within the sheet without automating anything,
         #basically just adding functionality to the program
